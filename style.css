@@ -1,0 +1,590 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.marquee-container {
+    background-color: #f0f0f0;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.marquee-text {
+    animation: marquee 30s linear infinite; /* Adjust duration and timing function as needed */
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Styling left section of the header */
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.home-link, .videos-link, .settings-link {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+header i{
+    color: #ffd700;
+}
+.home-link:hover, .videos-link:hover, .settings-link:hover {
+    color: #ffd700; /* Change color on hover to gold */
+}
+
+.username {
+    margin-right: 20px;
+    font-weight: bold;
+    color: orange;
+}
+
+.watch-time {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Styling right section of the header */
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    backdrop-filter: blur(5px); /* Apply blur effect to the background */
+    z-index: 9999; /* Ensure it's above other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spinner {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    border-radius: 50%;
+    border: 8px solid #333; /* Color of the spinner */
+    border-top: 8px solid #ffd700; /* Color of the spinner */
+    animation: spin 1s linear infinite; /* Animation for spinning */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.search-container{
+    display: flex;
+    flex-direction: row;
+}
+.search-bar {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 20px;
+    width: 100%; /* Take up remaining space */
+    max-width: 300px; /* Limit width for larger screens */
+    font-size: 16px;
+    margin-bottom: 10px;
+
+}
+
+.search-bar:focus {
+    outline: none;
+    border: 2px solid #ffd700; /* Highlight border on focus */
+}
+header i{
+    margin-left: 10px;
+}
+.search-button {
+
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    height: 5vh;
+    width: 70px;
+    margin-left: -15px;
+    border-radius: 5px;
+}
+.search-button i{
+    font-size: 20px;
+}
+.search-button i {
+    color: #333; /* Adjust icon color */
+}
+
+.logo {
+    width: 100px; /* Adjust the width as per your requirement */
+    height: auto; /* Maintain aspect ratio */
+}
+#video-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     padding: 20px;
+     background-color: #ccc;
+    margin-bottom: 20px; /* Adjust as needed */
+    border-top: 3px solid #ffd700;
+ }
+
+.video {
+    width: calc(33.33% - 20px); /* Adjust as per your requirement */
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    border-radius: 8px;
+}
+
+.video:hover {
+    transform: scale(1.10); /* Increase size on hover */
+
+}
+
+.video img {
+    width: 100%;
+    height: auto;
+}
+
+.video h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.video .buttons {
+    display: none; /* Use flexbox for buttons */
+    justify-content: center; /* Center buttons horizontally */
+    margin-top: 5px; /* Reduce margin to separate buttons from video title */
+    flex-direction: row;
+    border-bottom: 2px solid #333;
+}
+
+.video button {
+    display: flex;
+    margin-left: 3px;
+    width: 90px;
+    height: 40px;
+    flex-direction: column;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    cursor:pointer;
+    margin-right: 20px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 8px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.video button i,
+.view-count i{
+    margin-left: 20px;
+}
+.video button:hover{
+    background-color: #fff;
+    color: #333;
+    border-color: #fff;
+    transition:500ms;
+}
+.view-count:hover{
+    background-color: #fff;
+    color: #333;
+    transition:500ms;
+}
+.view-count{
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    width: 80px;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.video video {
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: fixed;
+    top: 100px;
+    left: 300px;
+    width: 40%;
+    height: 50%;
+    background-color: #ccc; /* Semi-transparent black background */
+    z-index: 9999; /* Ensure it's above other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid gold ;
+    border-radius: 8px;
+}
+.overlaying {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Adjust the width as desired */
+    height: 90vh; /* Adjust the height as desired */
+    border: 2px solid gold;
+    pointer-events: none; /* Disable mouse events on the overlay */
+    cursor: none; /* Hide the cursor */
+}
+.films {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Adjust the width as desired */
+    height: 90vh; /* Adjust the height as desired */
+    pointer-events: none; /* Disable mouse events on the overlay */
+    cursor: none; /* Hide the cursor */
+}
+.category-list {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.categories {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categories li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.categories li:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+.skeleton-video {
+    background-color: green; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Spacing between skeleton videos */
+    animation: pulse 1.5s infinite alternate; /* Animation effect */
+}
+
+.skeleton-thumbnail {
+    width: 100%;
+    height: 150px; /* Adjust height as needed */
+    background-color: #ccc; /* Gray background for thumbnail */
+}
+
+.skeleton-title {
+    width: 80%;
+    height: 20px;
+    background-color: #ccc; /* Gray background for title */
+    margin: 10px auto; /* Center the title */
+}
+
+@keyframes pulse {
+    from {
+        opacity: 1; /* Full opacity */
+    }
+    to {
+        opacity: 0.6; /* Lower opacity */
+    }
+}
+
+.overlay-view {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Add padding for content */
+    max-width: 80%; /* Limit the width of the overlay */
+    max-height: 80%; /* Limit the height of the overlay */
+    overflow: auto; /* Enable scrolling if content exceeds the overlay size */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.overlay-content {
+    /* Add styles for the content inside the overlay */
+    color: white; /* Example text color */
+}
+
+.overlay-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: white; /* Example close button color */
+}
+
+
+/* media query for screens with a maximum width of 420px */
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+
+    .left-section {
+        margin-bottom: 10px; /* Add spacing between left and right sections */
+    }
+
+    .right-section {
+        margin-top: 10px; /* Add spacing between left and right sections */
+    }
+
+    .search-bar {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Add spacing between search bar and settings */
+        width: 100%; /* Cover full width */
+        max-width: none; /* Remove max-width constraint */
+    }
+
+    .settings-link {
+        margin-right: 0; /* Remove right margin */
+        margin-left: 20px;
+    }
+    .search-button{
+        margin-left: 10px;
+    }
+
+    .overlaying {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%; /* Adjust the width as desired */
+        height: 40vh; /* Adjust the height as desired */
+        border: 2px solid gold;
+        pointer-events: none; /* Disable mouse events on the overlay */
+        cursor: none; /* Hide the cursor */
+    }
+    .films {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        width: 100%; /* Adjust the width as desired */
+        height: 200vh; /* Adjust the height as desired */
+        pointer-events: none; /* Disable mouse events on the overlay */
+        cursor: none; /* Hide the cursor */
+    }
+
+    .loading-spinner {
+        width: 50px; /* Adjust width as needed */
+        height: 50px; /* Adjust height as needed */
+        border-radius: 50%;
+        border: 8px solid #333; /* Color of the spinner */
+        border-top: 8px solid #ffd700; /* Color of the spinner */
+        animation: spin 1s linear infinite; /* Animation for spinning */
+    }
+    .video {
+        width: calc(44.44% - 4px); /* Adjust as per your requirement */
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        display: flex; /* Use flexbox */
+        flex-direction: column; /* Stack children vertically */
+        align-items: center; /* Center items horizontally */
+        border-radius: 8px;
+    }
+
+    .video button {
+        width: 40px; /* Adjust width */
+        margin-left: 1px; /* Adjust margin */
+        margin-right: 8px; /* Adjust margin */
+        font-size: 6px; /* Reduce font size */
+        padding-left: 2px; /* Adjust padding */
+        padding-top: 2px; /* Adjust padding */
+        height: 3vh;
+    }
+    .view-count{
+        height: 3vh;
+        width: 40px;
+    }
+    .view-count i{
+        transform:translateY(-13px) ;
+        margin-right: 5px;
+    }
+    .overlay {
+        position: fixed;
+        top: 0px;
+        left: 50px;
+        width: 80%;
+        height: 20%;
+        background-color: #ccc; /* Semi-transparent black background */
+        z-index: 9999; /* Ensure it's above other content */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid gold ;
+        border-radius: 8px;
+        margin-top: 300px;
+    }
+    .category-list {
+        background-color: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    }
+    .video button i,
+    .view-count i{
+        margin-left: 7px;
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 786px) {
+    header {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+
+    .left-section {
+        margin-bottom: 10px; /* Add spacing between left and right sections */
+    }
+
+    .right-section {
+        margin-top: 10px; /* Add spacing between left and right sections */
+        margin-left: 20px;
+    }
+
+    .search-bar {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Add spacing between search bar and settings */
+        width: 100%; /* Cover full width */
+        max-width: none; /* Remove max-width constraint */
+    }
+
+    .settings-link {
+        margin-right: 0; /* Remove right margin */
+        margin-left: 20px;
+    }
+    .search-button{
+        margin-left: 10px;
+    }
+
+    .overlaying {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%; /* Adjust the width as desired */
+        height: 60vh; /* Adjust the height as desired */
+        border: 2px solid gold;
+        pointer-events: none; /* Disable mouse events on the overlay */
+        cursor: none; /* Hide the cursor */
+    }
+    .films {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100%; /* Adjust the width as desired */
+        height: 200vh; /* Adjust the height as desired */
+        pointer-events: none; /* Disable mouse events on the overlay */
+        cursor: none; /* Hide the cursor */
+    }
+
+    .loading-spinner {
+        width: 70px; /* Adjust width as needed */
+        height: 70px; /* Adjust height as needed */
+        border-radius: 50%;
+        border: 8px solid #333; /* Color of the spinner */
+        border-top: 8px solid #ffd700; /* Color of the spinner */
+        animation: spin 1s linear infinite; /* Animation for spinning */
+    }
+    .video {
+        width: calc(33.33% - 15px); /* Adjust as per your requirement */
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        display: flex; /* Use flexbox */
+        flex-direction: column; /* Stack children vertically */
+        align-items: center; /* Center items horizontally */
+        border-radius: 8px;
+    }
+
+    .video button {
+        width: calc(55.55% - 15px); /* Adjust width */
+        margin-left: 1px; /* Adjust margin */
+        margin-right: 8px; /* Adjust margin */
+        font-size: 6px; /* Reduce font size */
+        padding-left: 2px; /* Adjust padding */
+        padding-top: 2px; /* Adjust padding */
+        height: 3vh;
+    }
+    .view-count{
+        height: 3vh;
+        width: 45px;
+    }
+    .view-count i{
+        transform:translateY(-13px) ;
+        margin-right: 5px;
+
+    }
+    .overlay {
+        position: fixed;
+        top: 0px;
+        left: 50px;
+        width: 80%;
+        height: 45%;
+        background-color: #ccc; /* Semi-transparent black background */
+        z-index: 9999; /* Ensure it's above other content */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid gold ;
+        border-radius: 8px;
+        margin-top: 300px;
+    }
+    .category-list {
+        background-color: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    }
+    .video button i,
+    .view-count i{
+        margin-left: 7px;
+        font-size: 10px;
+    }
+}
